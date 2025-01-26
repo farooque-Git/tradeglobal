@@ -1,6 +1,6 @@
-# PORTFOLIO
+# TradeGlobal
 
-This project was based on react title is Portfolio app (Portfolio of Farooque Ali) and the bundlers which are using is WebPack.
+This project was based on react title is TradeGlobal and the bundlers which are using is WebPack.
 
 ## Styling
 
@@ -16,16 +16,10 @@ Normal
 1. React icons
 2. Tailwind css and its config
 3. Babel
-4. React Scroll
+4. React
+5. React Router Dom
+6. Firebase for Authentication
+7. Redux for Store Management
+8.
 
-## Image for Project
-
-It's taken a screenshot from some of my project.
-
-## Images for icons
-
-It's downloaded from Google in png file as well as webfile.
-
-In the project directory, you can run:
-
-### `npm run start`
+### `npm start`
