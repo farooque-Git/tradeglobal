@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
@@ -12,7 +12,9 @@ const Header = () => {
   const user = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const dropdownRef = useRef(null);
 
+  // Handle login/logout
   const handleLoginLogout = async () => {
     if (user) {
       try {
@@ -27,12 +29,35 @@ const Header = () => {
     }
   };
 
+  // Toggle dropdown visibility
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  // Close dropdown after 3 seconds
+  useEffect(() => {
+    if (dropdownOpen) {
+      const timer = setTimeout(() => {
+        setDropdownOpen(false);
+      }, 3000); // 3 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [dropdownOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className="flex bg-black justify-between items-center w-full pt-2 h-14 px-4 fixed z-10">
+    <div className="flex bg-black justify-between items-center w-full pb-2 h-16 px-4 fixed z-10">
       {/* Logo */}
       <div>
         <RouterLink
@@ -45,7 +70,7 @@ const Header = () => {
 
       {/* Desktop Navigation Links */}
       <ul className="hidden md:flex md:items-center">
-        <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
+        <li className="px-1 py-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
           <RouterLink to="/" className="hover:text-white">
             Home
           </RouterLink>
@@ -64,12 +89,7 @@ const Header = () => {
         {/* Display Login/Logout button */}
         <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
           {user ? (
-            <button
-              onClick={handleLoginLogout}
-              className="text-white w-fit px-4 py-2 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
-            >
-              Logout
-            </button>
+            <div className=""></div>
           ) : (
             <RouterLink to="/login" className="hover:text-white">
               Login
@@ -81,9 +101,16 @@ const Header = () => {
         <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
           {user ? (
             <div className="relative flex items-center space-x-4 text-3xl">
-              <CgProfile onClick={toggleDropdown} className="cursor-pointer" />
+              <CgProfile
+                onClick={toggleDropdown}
+                className="cursor-pointer pb-2"
+              />
               {dropdownOpen && (
-                <div className="absolute right-0 text-sm pt-10 w-60 bg-white text-black rounded-md shadow-lg">
+                <div
+                  ref={dropdownRef}
+                  className="absolute right-0 text-sm pt-2 w-60 bg-white text-black rounded-md shadow-lg"
+                  style={{ top: "100%" }}
+                >
                   <p className="px-4 ">{user.displayName}</p>
                   <RouterLink
                     to="/profile"
@@ -103,7 +130,7 @@ const Header = () => {
           ) : (
             <RouterLink
               to="/register"
-              className="text-white w-fit px-4 py-2 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
+              className="text-white w-fit px-4 py-2 my-2 pb-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
             >
               Open an Account
             </RouterLink>
