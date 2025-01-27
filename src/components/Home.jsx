@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import Service from "./Service";
 import Footer from "./Footer";
 import IncreasingNumber from "./IncreasingArrow";
-
+import TradeApp from "./TradeApp";
 
 const Home = () => {
   return (
@@ -12,6 +12,7 @@ const Home = () => {
       <Service />
       <CoreValues />
       <IncreasingNumber />
+      <TradeApp />
       <Footer />
     </div>
   );
