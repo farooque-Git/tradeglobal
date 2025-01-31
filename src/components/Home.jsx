@@ -1,9 +1,15 @@
-import CoreValues from "./CoreValues";
-import Hero from "./Hero";
-import Service from "./Service";
+import Hero from "./home/Hero";
+import Service from "./home/Service";
+import CoreValues from "./home/CoreValues";
+import IncreasingNumber from "./home/IncreasingArrow";
+import TradeApp from "./home/TradeApp";
 import Footer from "./Footer";
-import IncreasingNumber from "./IncreasingArrow";
-import TradeApp from "./TradeApp";
+import FeatureComponent from "./home/FeatureComponent";
+import ForexMatrix from "./home/ForexMatrix";
+import PortfolioSection from "./home/Portfolio";
+import ZeroFeeComponent from "./home/ZeroFee";
+import InvestmentSection from "./home/Investement";
+import MultiSection from "./home/MultiSection";
 
 const Home = () => {
   return (
@@ -12,7 +18,13 @@ const Home = () => {
       <Service />
       <CoreValues />
       <IncreasingNumber />
+      <FeatureComponent />
+      <MultiSection />
+      <ForexMatrix />
       <TradeApp />
+      <PortfolioSection />
+      <ZeroFeeComponent />
+      <InvestmentSection />
       <Footer />
     </div>
   );

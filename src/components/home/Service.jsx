@@ -68,6 +68,18 @@ const Service = () => {
           ))}
         </div>
       </div>
+      <div className="flex justify-center items-center w-full h-full p-6">
+        <div className="w-full md:w-1/2 p-6 shadow-lg rounded-lg">
+          <iframe
+            title="vimeo-player"
+            src="https://player.vimeo.com/video/899030923?h=6b23f2d100"
+            width="640"
+            height="360"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 };

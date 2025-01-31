@@ -14,7 +14,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const dropdownRef = useRef(null);
 
-  // Handle login/logout
   const handleLoginLogout = async () => {
     if (user) {
       try {
@@ -56,6 +55,12 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const dropdownItems = [
+    { label: "Android Terminal", link: "/platform/android" },
+    { label: "Desktop Terminal", link: "/platform/desktop" },
+    { label: "iPhone Terminal", link: "/platform/ios" },
+  ];
+
   return (
     <div className="flex bg-black justify-between items-center w-full pb-2 h-16 px-4 fixed z-10">
       {/* Logo */}
@@ -64,21 +69,20 @@ const Header = () => {
           to="/"
           className="text-slate-400 font-bold ml-10 p-2 text-xl"
         >
-          Trade Global
+          Centrio Global Ltd
         </RouterLink>
       </div>
 
       {/* Desktop Navigation Links */}
       <ul className="hidden md:flex md:items-center">
-        <li className="px-1 py-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
+        <li className="px-1 mt-2 py-2 mr-8 cursor-poi nter capitalize font-medium text-gray-500 hover:scale-105 duration-200">
           <RouterLink to="/" className="hover:text-white">
-            Home
+            Trading
           </RouterLink>
         </li>
         <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
-          <RouterLink to="/platform" className="hover:text-white">
-            Platform
-          </RouterLink>
+          {/* <Dropdown label="Platform" items={dropdownItems} /> */}
+          Platform
         </li>
         <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
           <RouterLink to="/about-us" className="hover:text-white">

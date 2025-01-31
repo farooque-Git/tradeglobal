@@ -22,7 +22,8 @@ export default function PlatformSection() {
   const features = [
     {
       title: "Reliable",
-      description: "Our platform guarantees 99.99% uptime for seamless performance.",
+      description:
+        "Our platform guarantees 99.99% uptime for seamless performance.",
       icon: "✔️",
     },
     {
@@ -64,7 +65,9 @@ export default function PlatformSection() {
               <div>
                 <h3 className="text-lg font-semibold">{platform.name}</h3>
                 <button
-                  onClick={() => handleDownload(platform.name, platform.downloadLink)}
+                  onClick={() =>
+                    handleDownload(platform.name, platform.downloadLink)
+                  }
                   className="text-blue-600 hover:underline text-sm"
                 >
                   Download Here (Free)
