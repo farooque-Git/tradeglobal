@@ -26,7 +26,7 @@ const Hero = () => {
     slidesToShow: 1, // Show one slide at a time
     slidesToScroll: 1, // Scroll one slide at a time
     autoplay: true, // Enable autoplay
-    autoplaySpeed: 2000, // Change slide every 2 seconds
+    autoplaySpeed: 4000, // Change slide every 2 seconds
     arrows: false, // Hide arrows
     fade: false, // Disable fade effect (default is slide)
   };
@@ -49,7 +49,7 @@ const Hero = () => {
       </div>
 
       {/* Content Section */}
-      <div className="relative z-10 max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
+      <div className="relative z-auto  max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
         <div className="flex flex-col justify-center h-full text-center md:text-left">
           <h1 className="text-4xl sm:text-6xl font-bold text-white">
             $40+ Million Profits Made by
