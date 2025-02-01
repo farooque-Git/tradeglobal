@@ -31,7 +31,7 @@ const InvestmentSection = () => {
   ];
 
   return (
-    <div className="bg-[#0a0a1a] text-white py-16 px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-center gap-10">
+    <div className="bg-[#000000] text-white py-16 px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-center gap-10">
       <div className="max-w-lg font-semibold">
         <h1 className="mt-6 text-lg text-yellow-300">
           Trader Celebrate $40+ Million Profits
@@ -62,16 +62,18 @@ const InvestmentSection = () => {
 
       <div className="relative w-[400px] h-[300px] flex items-center justify-center">
         <img
-          src="https://w7.pngwing.com/pngs/786/671/png-transparent-smartphone-act-forex-inc-foreign-exchange-market-binary-option-trader-smartphone-gadget-electronics-mobile-phone.png"
+          src="https://img.freepik.com/premium-photo/3d-mobile-phone-mock-up-online-forex-trading-sales-theme-dark-big-depth-background_816702-2619.jpg"
           alt="Investment"
           className="rounded-lg shadow-lg"
         />
         <div className="absolute bottom-10 left-8 bg-white p-3 rounded-md shadow-md text-black text-sm">
-          📈 <span className="font-bold">15.39%</span> Investors trend
+          <span className="font-bold">
+            Sipport when you need its Investors trend
+          </span>
         </div>
-        <div className="absolute top-5 right-5 bg-white p-3 rounded-md shadow-md text-black text-sm">
+        {/* <div className="absolute top-5 right-5 bg-white p-3 rounded-md shadow-md text-black text-sm">
           EOS Score <span className="font-bold">42</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

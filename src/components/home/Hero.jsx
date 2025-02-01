@@ -56,7 +56,7 @@ const Hero = () => {
             <br />
             Trade with Us!
           </h1>
-          <p className="text-gray-400 py-5">
+          <p className="text-white py-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
             maxime reprehenderit ab vel, ullam quasi, ex totam eligendi soluta
             officia recusandae ratione, porro sit! Nemo dignissimos nulla neque

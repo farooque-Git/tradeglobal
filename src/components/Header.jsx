@@ -31,7 +31,7 @@ const Header = () => {
     }
   };
 
-  // Toggle client dropdown visibility
+  // Toggle client dropdown visibility (same as Trading dropdown)
   const toggleClientDropdown = () => {
     setClientDropdownOpen((prevState) => !prevState);
   };
@@ -76,11 +76,12 @@ const Header = () => {
             Trading
           </RouterLink>
         </li>
+
         <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium hover:scale-105 duration-200">
           Platform
         </li>
 
-        {/* "For Clients" with Hoverable Dropdown */}
+        {/* "For Clients" Dropdown with Toggle Functionality */}
         <li
           className="relative px-1 mt-2 mr-8 cursor-pointer capitalize font-medium hover:scale-105 duration-200 group"
           onClick={toggleClientDropdown}
@@ -105,11 +106,11 @@ const Header = () => {
                   Economic Calender
                 </RouterLink>
                 <RouterLink
-                  to="/forex-sentimental"
+                  to="/forex-sentiment"
                   className="block px-2 py-2 hover:bg-gray-100"
                   onClick={() => setClientDropdownOpen(false)}
                 >
-                  Forex Sentimental
+                  Forex Sentiment
                 </RouterLink>
                 <RouterLink
                   to="/market-newTV"
@@ -144,18 +145,18 @@ const Header = () => {
                   Forex Basic
                 </RouterLink>
                 <RouterLink
-                  to="/successfull trader"
+                  to="/successfull-trader"
                   className="block px-2 py-2 hover:bg-gray-100"
                   onClick={() => setClientDropdownOpen(false)}
                 >
-                  SuccessFull Trader
+                  Successful Trader
                 </RouterLink>
                 <RouterLink
                   to="/trading-principle"
                   className="block px-2 py-2 hover:bg-gray-100"
                   onClick={() => setClientDropdownOpen(false)}
                 >
-                  Trading Princple
+                  Trading Principle
                 </RouterLink>
               </div>
 
@@ -173,7 +174,7 @@ const Header = () => {
                   className="block px-2 py-2 hover:bg-gray-100"
                   onClick={() => setClientDropdownOpen(false)}
                 >
-                  PAMM Manger
+                  PAMM Manager
                 </RouterLink>
                 <RouterLink
                   to="/multi-acc-manager"
