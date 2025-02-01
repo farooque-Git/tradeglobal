@@ -205,10 +205,7 @@ const Header = () => {
           {user ? (
             <div className=""></div>
           ) : (
-            <RouterLink
-              to="/login"
-              className="border rounded-2xl py-1 px-4 text-2xl"
-            >
+            <RouterLink to="/login" className="border rounded-2xl py-1 px-4 ">
               Client Portal
             </RouterLink>
           )}
