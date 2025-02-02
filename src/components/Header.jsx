@@ -62,7 +62,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="flex text-white bg-black justify-between items-center w-full pb-2 h-16 px-36 fixed z-10">
+    <div className="flex text-white bg-black justify-between items-center w-full pb-2 h-16 md:px-36 fixed z-10">
       <div>
         <RouterLink to="/" className="font-bold ml-10 p-2 text-xl">
           Centrio Global Ltd
