@@ -74,9 +74,9 @@ const Header = () => {
           </RouterLink>
         </li>
 
-        <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium hover:scale-105 duration-200">
+        {/* <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium hover:scale-105 duration-200">
           Platform
-        </li>
+        </li> */}
 
         {/* "For Clients" Dropdown */}
         <li
