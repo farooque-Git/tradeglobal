@@ -2,6 +2,7 @@ import { MdOutlineDoubleArrow } from "react-icons/md";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 const slides = [
   {
@@ -19,6 +20,8 @@ const slides = [
 ];
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const settings = {
     dots: false, // Hide dots
     infinite: true, // Loop infinitely
@@ -29,6 +32,10 @@ const Hero = () => {
     autoplaySpeed: 4000, // Change slide every 4 seconds
     arrows: false, // Hide arrows
     fade: false, // Keep sliding animation
+  };
+
+  const handleOpenAccountClick = () => {
+    navigate("/register"); 
   };
 
   return (
@@ -61,7 +68,10 @@ const Hero = () => {
             our expert strategies. Start your journey with us today!
           </p>
           <div className="flex justify-center md:justify-start">
-            <button className="group text-white w-full sm:w-auto px-6 py-3 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-80 transition duration-300">
+            <button
+              className="group text-white w-full sm:w-auto px-6 py-3 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-80 transition duration-300"
+              onClick={handleOpenAccountClick}
+            >
               Open your Account
               <span className="group-hover:rotate-90 duration-300">
                 <MdOutlineDoubleArrow size={25} className="ml-2" />
