@@ -19,23 +19,28 @@ const FeatureCards = () => {
   ];
 
   return (
-    <div className="flex justify-center   items-center gap-6 py-10 px-4 md:px-10 bg-white">
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 py-10 px-4 md:px-10 bg-white">
       {features.map((feature, index) => (
         <div
           key={index}
-          className="w-[300px] md:w-[350px] h-96 bg-white rounded-2xl shadow-lg overflow-hidden"
+          className="w-full sm:max-w-[350px] bg-white rounded-2xl shadow-lg overflow-hidden"
         >
+          {/* Image Section */}
           <img
             src={feature.img}
             alt={feature.title}
             className="w-full h-[180px] object-cover"
           />
+
+          {/* Content Section */}
           <div className="p-5 bg-[#0B1E56] text-white rounded-b-2xl">
-            <h2 className="text-lg font-bold">{feature.title}</h2>
-            <p className="text-sm text-gray-300 mt-2">{feature.description}</p>
+            <h2 className="text-base sm:text-lg font-bold">{feature.title}</h2>
+            <p className="text-sm sm:text-base text-gray-300 mt-2">
+              {feature.description}
+            </p>
             <a
               href={feature.buttonLink}
-              className="block mt-4 bg-orange-500 text-white text-center py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-300"
+              className="block mt-4 bg-orange-500 text-white text-center py-2 w-full rounded-lg font-semibold hover:bg-orange-600 transition duration-300"
             >
               {feature.buttonText} →
             </a>

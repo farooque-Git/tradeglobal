@@ -22,18 +22,18 @@ const ZeroFeeComponent = () => {
   return (
     <div className="p-6 bg-gray-100 rounded-lg shadow-md flex justify-center items-center">
       <div className="text-center">
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4">
           Zero Fee, Deposit & Withdraw
         </h2>
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 mb-4 text-sm sm:text-base">
           Deposit and trade instantly using our wide range of fee-free funding
           options. No withdrawal fees.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto">
           {paymentMethods.map((method, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-4  rounded-lg shadow-sm bg-gray-800"
+              className="flex items-center justify-center p-4 rounded-lg shadow-sm bg-gray-800"
             >
               {/* <img
                 src={method.image}

@@ -17,6 +17,7 @@ const Home = () => {
       <Hero />
       <Service />
       <CoreValues />
+
       <IncreasingNumber />
       <FeatureComponent />
       <MultiSection />

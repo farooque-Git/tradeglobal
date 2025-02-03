@@ -26,22 +26,22 @@ const Hero = () => {
     slidesToShow: 1, // Show one slide at a time
     slidesToScroll: 1, // Scroll one slide at a time
     autoplay: true, // Enable autoplay
-    autoplaySpeed: 4000, // Change slide every 2 seconds
+    autoplaySpeed: 4000, // Change slide every 4 seconds
     arrows: false, // Hide arrows
-    fade: false, // Disable fade effect (default is slide)
+    fade: false, // Keep sliding animation
   };
 
   return (
-    <div className="h-screen w-full relative overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0 z-0">
         <Slider {...settings}>
           {slides.map((slide, index) => (
-            <div key={index}>
+            <div key={index} className="w-full h-screen">
               <img
                 src={slide.img}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-screen object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
@@ -49,24 +49,22 @@ const Hero = () => {
       </div>
 
       {/* Content Section */}
-      <div className="relative z-auto  max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
-        <div className="flex flex-col justify-center h-full text-center md:text-left">
-          <h1 className="text-4xl sm:text-6xl font-bold text-white">
+      <div className="relative z-0 flex flex-col items-center justify-center h-full w-full px-6 text-center md:flex-row md:text-left md:px-12">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl sm:text-5xl font-bold text-white leading-tight">
             $40+ Million Profits Made by
             <br />
             Trade with Us!
           </h1>
-          <p className="text-white py-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-            maxime reprehenderit ab vel, ullam quasi, ex totam eligendi soluta
-            officia recusandae ratione, porro sit! Nemo dignissimos nulla neque
-            laborum! Id.
+          <p className="text-white text-sm sm:text-base py-4 sm:py-6">
+            Join thousands of successful traders and maximize your profits with
+            our expert strategies. Start your journey with us today!
           </p>
-          <div>
-            <button className="group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer">
+          <div className="flex justify-center md:justify-start">
+            <button className="group text-white w-full sm:w-auto px-6 py-3 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-80 transition duration-300">
               Open your Account
               <span className="group-hover:rotate-90 duration-300">
-                <MdOutlineDoubleArrow size={25} className="ml-1" />
+                <MdOutlineDoubleArrow size={25} className="ml-2" />
               </span>
             </button>
           </div>

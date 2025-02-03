@@ -35,27 +35,31 @@ const MultiSection = () => {
   ];
 
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100 py-12 px-4 md:px-8 lg:px-12">
       {/* Wide Range of Products Section */}
-      <div className="max-w-6xl mx-auto px-4 mb-12 bg-[#0B1E56] p-6 rounded-md">
-        <h2 className="text-3xl font-bold text-white text-center mb-16">
+      <div className="max-w-6xl mx-auto mb-12 bg-[#0B1E56] p-6 rounded-md">
+        <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white text-center mb-12">
           Wide Range of Products
         </h2>
-        <div className="w-full grid grid-cols-3 sm:grid-cols-5 gap-8 text-center py-8 px-12 sm:px-0">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 text-center py-6">
           {icons.map(({ id, icon, description }) => (
             <div
               key={id}
               className="shadow-md hover:scale-105 duration-500 bg-white py-2 rounded-lg"
             >
               <p className="mt-4 flex justify-center">
-                <img src={icon} alt={description} className="w-16 h-16" />
+                <img
+                  src={icon}
+                  alt={description}
+                  className="w-12 sm:w-16 h-12 sm:h-16"
+                />
               </p>
-
-              <p className="mt-4 font-bold">{description}</p>
-              {/* Remove href="#" and replace it with a valid URL or logic */}
+              <p className="mt-4 font-bold text-sm sm:text-base">
+                {description}
+              </p>
               <a
-                href={`#${description.toLowerCase().replace(/\s+/g, "-")}`} // Sample URL logic
-                className="text-blue-500 hover:underline mt-2 text-sm block"
+                href={`#${description.toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-blue-500 hover:underline mt-2 text-xs sm:text-sm block"
               >
                 Read More
               </a>
@@ -65,29 +69,31 @@ const MultiSection = () => {
       </div>
 
       {/* We Keep Your Money Safe Section */}
-      <div className="max-w-6xl mx-auto px-4 mb-12">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-gray-800 mb-6">
           We Keep Your Money Safe
         </h2>
-        <p className="text-gray-600 text-center max-w-2xl mx-auto">
+        <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
           Gloren's Goodwill is constantly globally recommended for any part in
           each industry.
         </p>
       </div>
 
       {/* Trusted by Global Brands Section */}
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-gray-800 mb-6">
           Trusted by Global Brands
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {["PICTET", "J.Safra Sarasin", "Conica", "Deutsche Bank"].map(
             (brand, index) => (
               <div
                 key={index}
                 className="bg-white p-6 shadow-lg rounded-lg text-center"
               >
-                <h3 className="text-xl font-semibold text-gray-700">{brand}</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-700">
+                  {brand}
+                </h3>
               </div>
             )
           )}

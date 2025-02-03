@@ -16,7 +16,6 @@ const Header = () => {
   const clientDropdownRef = useRef(null);
   const profileDropdownRef = useRef(null);
 
-  // Handle login/logout functionality
   const handleLoginLogout = async () => {
     if (user) {
       try {
@@ -31,12 +30,10 @@ const Header = () => {
     }
   };
 
-  // Toggle client dropdown visibility (same as Trading dropdown)
   const toggleClientDropdown = () => {
     setClientDropdownOpen((prevState) => !prevState);
   };
 
-  // Toggle profile dropdown visibility
   const toggleProfileDropdown = () => {
     setProfileDropdownOpen((prevState) => !prevState);
   };
@@ -81,7 +78,7 @@ const Header = () => {
           Platform
         </li>
 
-        {/* "For Clients" Dropdown with Toggle Functionality */}
+        {/* "For Clients" Dropdown */}
         <li
           className="relative px-1 mt-2 mr-8 cursor-pointer capitalize font-medium hover:scale-105 duration-200 group"
           onClick={toggleClientDropdown}
@@ -211,47 +208,47 @@ const Header = () => {
             </RouterLink>
           )}
         </li>
-
-        {/* Conditionally render user name and "Open an Account" button */}
-        <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
-          {user ? (
-            <div className="relative flex items-center space-x-4 text-3xl">
-              <CgProfile
-                onClick={toggleProfileDropdown}
-                className="cursor-pointer pb-2"
-              />
-              {profileDropdownOpen && (
-                <div
-                  ref={profileDropdownRef}
-                  className="absolute right-0 text-sm pt-2 w-60 bg-white text-black rounded-md shadow-lg"
-                  style={{ top: "100%" }}
-                >
-                  <p className="px-4 ">{user.displayName}</p>
-                  <RouterLink
-                    to="/profile"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    View Profile
-                  </RouterLink>
-                  <button
-                    onClick={handleLoginLogout}
-                    className="block w-full px-4 py-2 text-left hover:bg-gray-100"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <RouterLink
-              to="/register"
-              className="text-white w-fit rounded-3xl px-6 py-2 my-2 pb-2 flex items-center bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
-            >
-              Open Account
-            </RouterLink>
-          )}
-        </li>
       </ul>
+
+      {/* Profile Dropdown */}
+      <div className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
+        {user ? (
+          <div className="relative flex items-center space-x-4 text-3xl">
+            <CgProfile
+              onClick={toggleProfileDropdown}
+              className="cursor-pointer pb-2"
+            />
+            {profileDropdownOpen && (
+              <div
+                ref={profileDropdownRef}
+                className="absolute right-0 text-sm pt-2 w-60 bg-white text-black rounded-md shadow-lg"
+                style={{ top: "100%", maxHeight: "300px", overflowY: "auto" }} // Added scroll if content overflows
+              >
+                <p className="px-4 ">{user.displayName}</p>
+                <RouterLink
+                  to="/profile"
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  View Profile
+                </RouterLink>
+                <button
+                  onClick={handleLoginLogout}
+                  className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <RouterLink
+            to="/register"
+            className="text-white w-fit rounded-3xl px-6 py-2 my-2 pb-2 flex items-center bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
+          >
+            Open Account
+          </RouterLink>
+        )}
+      </div>
 
       {/* Hamburger Menu */}
       <div
@@ -263,33 +260,102 @@ const Header = () => {
 
       {/* Mobile Navigation Links */}
       {navIcon && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500">
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+        <ul className="flex flex-col pt-10 pl-10 absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500">
+          <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-semibold text-3xl hover:scale-105 duration-200">
             <RouterLink
-              onClick={() => setNavIcon(!navIcon)}
               to="/"
+              onClick={() => setNavIcon(!navIcon)}
               className="hover:text-white"
             >
-              Home
+              Trading
             </RouterLink>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
-            <RouterLink
-              onClick={() => setNavIcon(!navIcon)}
-              to="/platform"
-              className="hover:text-white"
-            >
-              Platform
+          {/* 
+          <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-semibold text-3xl hover:scale-105 duration-200">
+            Platform
+          </li> */}
+
+          {/* "For Clients" Dropdown for Mobile */}
+          <li
+            className="relative px-1 mt-2 mr-8 cursor-pointer capitalize font-semibold text-3xl hover:scale-105 duration-200"
+            onClick={toggleClientDropdown}
+          >
+            <RouterLink to="#" className="hover:text-white">
+              For Clients
             </RouterLink>
+            {clientDropdownOpen && (
+              <div
+                ref={clientDropdownRef}
+                className=" left-0  text-lg shadow-lg mt-2 w-full p-4"
+                style={{ maxHeight: "300px", overflowY: "auto" }} // Added scroll if content overflows
+              >
+                <RouterLink
+                  to="/economic-calender"
+                  className="block px-2 py-2 hover:text-white "
+                  onClick={() => {
+                    setClientDropdownOpen(false);
+                    setNavIcon(false);
+                  }}
+                >
+                  Economic Calender
+                </RouterLink>
+                <RouterLink
+                  to="/forex-sentiment"
+                  className="block px-2 py-2 hover:text-white"
+                  onClick={() => {
+                    setClientDropdownOpen(false);
+                    setNavIcon(false);
+                  }}
+                >
+                  Forex Sentiment
+                </RouterLink>
+                <RouterLink
+                  to="/market-newTV"
+                  className="block px-2 py-2 hover:text-white"
+                  onClick={() => {
+                    setClientDropdownOpen(false);
+                    setNavIcon(false);
+                  }}
+                >
+                  Market New TV
+                </RouterLink>
+                <RouterLink
+                  to="/forex-calculator"
+                  className="block px-2 py-2 hover:text-white"
+                  onClick={() => {
+                    setClientDropdownOpen(false);
+                    setNavIcon(false);
+                  }}
+                >
+                  Forex Calculator
+                </RouterLink>
+              </div>
+            )}
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+
+          <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-semibold text-3xl hover:scale-105 duration-200">
             <RouterLink
-              onClick={() => setNavIcon(!navIcon)}
               to="/about-us"
+              onClick={() => setNavIcon(!navIcon)}
               className="hover:text-white"
             >
               About Us
             </RouterLink>
+          </li>
+
+          {/* User Login/Logout Button */}
+          <li className="px-1 mt-2 mr-8 cursor-pointer capitalize font-semibold text-3xl hover:scale-105 duration-200">
+            {user ? (
+              <div className="text-green-500">{user.displayName}</div>
+            ) : (
+              <RouterLink
+                to="/login"
+                onClick={() => setNavIcon(!navIcon)}
+                className=" hover:text-white"
+              >
+                Client Portal
+              </RouterLink>
+            )}
           </li>
         </ul>
       )}
