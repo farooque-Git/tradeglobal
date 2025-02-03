@@ -61,7 +61,10 @@ const Header = () => {
   return (
     <div className="flex text-white bg-black justify-between items-center w-full pb-2 h-16 md:px-36 fixed z-10">
       <div>
-        <RouterLink to="/" className="font-bold ml-10 p-2 text-xl">
+        <RouterLink
+          to="/"
+          className="font-bold ml-10 p-2  sm:text-lg md:text-xl"
+        >
           Centrio Global Ltd
         </RouterLink>
       </div>
@@ -213,7 +216,7 @@ const Header = () => {
       {/* Profile Dropdown */}
       <div className="px-1 mt-2 mr-8 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200">
         {user ? (
-          <div className="relative flex items-center space-x-4 text-3xl">
+          <div className="relative flex items-center space-x-4 text-2xl sm:text-xl md:text-3xl">
             <CgProfile
               onClick={toggleProfileDropdown}
               className="cursor-pointer pb-2"
@@ -221,10 +224,10 @@ const Header = () => {
             {profileDropdownOpen && (
               <div
                 ref={profileDropdownRef}
-                className="absolute right-0 text-sm pt-2 w-60 bg-white text-black rounded-md shadow-lg"
+                className="absolute right-0 text-sm sm:text-xs pt-2 w-48 sm:w-56 md:w-60 bg-white text-black rounded-md shadow-lg"
                 style={{ top: "100%", maxHeight: "300px", overflowY: "auto" }} // Added scroll if content overflows
               >
-                <p className="px-4 ">{user.displayName}</p>
+                <p className="px-4">{user.displayName}</p>
                 <RouterLink
                   to="/profile"
                   className="block px-4 py-2 hover:bg-gray-100"
@@ -243,7 +246,7 @@ const Header = () => {
         ) : (
           <RouterLink
             to="/register"
-            className="text-white w-fit rounded-3xl px-6 py-2 my-2 pb-2 flex items-center bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer"
+            className="text-white w-fit rounded-3xl px-4 sm:px-6 py-2 my-2 pb-2 flex items-center bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer text-sm sm:text-base"
           >
             Open Account
           </RouterLink>
